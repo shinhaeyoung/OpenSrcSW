@@ -1,4 +1,4 @@
-package lab_0311;
+package lab;
 
 import java.io.*;
 
@@ -13,15 +13,15 @@ import org.jsoup.select.Elements;
 
 import org.w3c.dom.Element;
 
-public class createXML {
-
-	public static void main(String[] args) throws IOException, ParserConfigurationException {
-		String path = "../"; //C:/201811191 신해영/2021 4학년 1학기/오픈소스SW입문/SimpleIR/
+public class makeCollection {
+	
+	public static void makeXML(String path) throws IOException, ParserConfigurationException {
+		if(path.length() < 0)
+			path = "./data/";
 		
 		//.html 파일 접근
-		File files = new File(path);
 		String pattern = ".html";
-		
+		File files = new File(path);
 		String fileList[] = files.list(new FilenameFilter() {
 			@Override
 			public boolean accept(File dir, String name) {
@@ -84,7 +84,7 @@ public class createXML {
 		transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
 		
 		DOMSource source = new DOMSource(doc);
-		StreamResult result = new StreamResult(new FileOutputStream(new File("../collection.xml")));
+		StreamResult result = new StreamResult(new FileOutputStream(new File("./collection.xml")));
 		
 		try {
 			transformer.transform(source, result);
@@ -92,6 +92,7 @@ public class createXML {
 			e.printStackTrace();
 		}
 		
+		System.out.println("끝");
 	}
 
 }
