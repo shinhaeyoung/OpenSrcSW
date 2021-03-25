@@ -8,7 +8,7 @@ import org.xml.sax.SAXException;
 
 public class kuir {
 
-	public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
+	public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException, ClassNotFoundException {
 		switch(args[0]) {
 		case "-c":
 			makeCollection.makeXML(args[1]);
@@ -16,8 +16,10 @@ public class kuir {
 		case "-k":
 			makeKeyword.makeIndex(args[1]);
 			break;
+		case "-i":
+			indexer.makeInvert(args[1]);
+			break;
 		}
-
 	}
 
 }
