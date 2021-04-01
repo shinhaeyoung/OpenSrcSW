@@ -19,6 +19,9 @@ public class kuir {
 		case "-i":
 			indexer.makeInvert(args[1]);
 			break;
+		case "-s":
+			searcher.searchIndex(args[1], args[3]);
+			break;
 		}
 	}
 
