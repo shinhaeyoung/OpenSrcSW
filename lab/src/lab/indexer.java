@@ -75,17 +75,17 @@ public class indexer {
 		objectOutputStream.close();
 		
 		//확인용 - index.post 읽어오기
-		FileInputStream fileInputStream = new FileInputStream("./index.post");
-		ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-		Object object = objectInputStream.readObject();
-		objectInputStream.close();
-		HashMap hashMap = (HashMap)object;
-		Iterator<String> it = hashMap.keySet().iterator();
-		while(it.hasNext()) {
-			String key = it.next();
-			Object value = hashMap.get(key);
-			System.out.println(key + "->" + value);
-		}
+//		FileInputStream fileInputStream = new FileInputStream("./index.post");
+//		ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+//		Object object = objectInputStream.readObject();
+//		objectInputStream.close();
+//		HashMap hashMap = (HashMap)object;
+//		Iterator<String> it = hashMap.keySet().iterator();
+//		while(it.hasNext()) {
+//			String key = it.next();
+//			Object value = hashMap.get(key);
+//			System.out.println(key + "->" + value);
+//		}
 	}
 
 	//각 문서에서 가중치 구하기 - 가중치=tf*idf => indexMap의 value

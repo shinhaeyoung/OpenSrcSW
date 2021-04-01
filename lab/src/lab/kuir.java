@@ -19,6 +19,11 @@ public class kuir {
 		case "-i":
 			indexer.makeInvert(args[1]);
 			break;
+		case "-s":
+			if(args[2].equals("-q"))
+				searcher.searchIndex(args[1], args[3]);
+			else
+				System.out.println("잘못된 인자가 입력되었습니다");
 		}
 	}
 
