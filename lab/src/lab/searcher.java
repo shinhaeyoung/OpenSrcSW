@@ -58,7 +58,7 @@ public class searcher {
 		ArrayList<Double> similarArray = new ArrayList<Double>();
 		int N = 5;
 		for(int id=0; id<N; id++)
-			similarArray.add(calSimilar(id));
+			similarArray.add(calcSim(id));
 //		System.out.println(similarArray);
 		
 		//등수 계산
@@ -99,7 +99,7 @@ public class searcher {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static double calSimilar(int id) {
+	public static double calcSim(int id) {
 		double similarity = 0.0;
 		for(int i=0; i<keyword.size(); i++) {
 			String key = keyword.get(i);
