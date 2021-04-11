@@ -58,7 +58,7 @@ public class searcher {
 		ArrayList<Double> similarArray = new ArrayList<Double>();
 		int N = 5;
 		for(int id=0; id<N; id++)
-			similarArray.add(calcSim(id));
+			similarArray.add(calcSim2(id));
 //		System.out.println(similarArray);
 		
 		//등수 계산
@@ -103,11 +103,10 @@ public class searcher {
 			}
 		}
 		
-		
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static double calcSim(int id) {
+	public static double calcSim2(int id) {
 		double cosSimilarity = 0.0;
 		double innerProduct = 0.0;
 		double length = 0.0;
@@ -132,5 +131,3 @@ public class searcher {
 		return cosSimilarity;
 	}
 }
-
-
