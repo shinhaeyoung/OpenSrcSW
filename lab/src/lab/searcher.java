@@ -52,7 +52,7 @@ public class searcher {
 					keyword.add(kwrd.getString());
 			}
 		}
-		System.out.println(keyword);
+//		System.out.println(keyword);
 		
 		//query에 대한 문서 id의 유사도 Array - index==id
 		ArrayList<Double> similarArray = new ArrayList<Double>();
@@ -70,6 +70,9 @@ public class searcher {
 					rank[i]++;
 			}
 		}
+//		for(int i=0; i<rank.length; i++){
+//			System.out.println("문서id: " + i + ", rank: " + rank[i]);
+//		}
 		
 		//xml 파일 접근
 		String file = "./collection.xml"; //by 이클립스
@@ -84,16 +87,20 @@ public class searcher {
 		ArrayList<String> titles = new ArrayList<String>();
 		for(int i=0; i<nList.getLength(); i++)
 			titles.add(nList.item(i).getTextContent());
-
+		
 		//상위 3위 title 출력
 		System.out.println("<상위 3위 title>");
 		int count = 0;
 		for (int id=0; id<similarArray.size(); id++) {
-			if(rank[id] >= 1 && rank[id] <= 3 && count < 3) {
-				count++;
-				//문서 id의 title 출력
-				System.out.println("문서 id: " + id + ", rank: " + rank[id] + ", title: " + titles.get(id));
-			}	
+			if(similarArray.get(id) != 0 && count < 3) { //+ 유사도 0이면 출력x
+				if(rank[id] >= 1 && rank[id] <= 3) {
+					//문서 id의 title 출력 
+					System.out.println("문서 id: " + id + ", title: " + titles.get(id) +
+							", rank: " + rank[id] +  ", 유사도: " + String.format("%.2f", similarArray.get(id)));
+					count++;
+				}
+				
+			}
 		}
 		
 	}
