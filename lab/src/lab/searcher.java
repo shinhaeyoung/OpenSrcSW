@@ -117,17 +117,32 @@ public class searcher {
 			ArrayList<String> value = (ArrayList<String>) hashMap.get(key);
 			for(int j=0 ;j<value.size(); j=j+2) {
 				if(Integer.parseInt(value.get(j)) == id) {
-					innerProduct += Double.parseDouble(value.get(j+1));
 					wq++;
 					temp += Math.pow(Double.parseDouble(value.get(j+1)), 2);
 				}
 			}
 		}
+		innerProduct = InnerProduct(id);
 		length = Math.sqrt(wq)*Math.sqrt(temp);
 		if(length == 0)
 			cosSimilarity = 0;
 		else
 			cosSimilarity = innerProduct/length;
 		return cosSimilarity;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static double InnerProduct(int id) {
+		double similarity = 0.0;
+		for(int i=0; i<keyword.size(); i++) {
+			String key = keyword.get(i);
+			ArrayList<String> value = (ArrayList<String>) hashMap.get(key);
+			for(int j=0 ;j<value.size(); j=j+2) {
+				if(Integer.parseInt(value.get(j)) == id) {
+					similarity += Double.parseDouble(value.get(j+1));
+				}
+			}
+		}
+		return similarity;
 	}
 }
